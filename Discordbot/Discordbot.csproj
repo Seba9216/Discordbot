@@ -108,10 +108,31 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DomainModel\BannedChampion.cs" />
+    <Compile Include="DomainModel\Champion.cs" />
+    <Compile Include="DomainModel\GameDomainModel\Ban.cs" />
+    <Compile Include="DomainModel\GameDomainModel\Baron.cs" />
+    <Compile Include="DomainModel\GameDomainModel\Challenges.cs" />
+    <Compile Include="DomainModel\GameDomainModel\Dragon.cs" />
+    <Compile Include="DomainModel\GameDomainModel\GameParticipant.cs" />
+    <Compile Include="DomainModel\GameDomainModel\GamePerks.cs" />
+    <Compile Include="DomainModel\GameDomainModel\GameRoot.cs" />
+    <Compile Include="DomainModel\GameDomainModel\Info.cs" />
+    <Compile Include="DomainModel\GameDomainModel\Inhibitor.cs" />
+    <Compile Include="DomainModel\GameDomainModel\MetaData.cs" />
+    <Compile Include="DomainModel\GameDomainModel\Objectives.cs" />
+    <Compile Include="DomainModel\GameDomainModel\RiftHerald.cs" />
+    <Compile Include="DomainModel\GameDomainModel\Selection.cs" />
+    <Compile Include="DomainModel\GameDomainModel\StatPerks.cs" />
+    <Compile Include="DomainModel\GameDomainModel\Style.cs" />
+    <Compile Include="DomainModel\GameDomainModel\Team.cs" />
+    <Compile Include="DomainModel\GameDomainModel\Tower.cs" />
     <Compile Include="DomainModel\Observers.cs" />
     <Compile Include="DomainModel\Participant.cs" />
     <Compile Include="DomainModel\Perks.cs" />
     <Compile Include="DomainModel\Root.cs" />
+    <Compile Include="DomainModel\ViewModel\ChampViewmodel.cs" />
+    <Compile Include="DomainModel\ViewModel\GameViewModel.cs" />
+    <Compile Include="DomainModel\ViewModel\PlayerViewModel.cs" />
     <Compile Include="Infomodule.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

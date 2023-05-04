@@ -1,4 +1,5 @@
 ﻿using Discordbot.DomainModel;
+using Discordbot.DomainModel.GameDomainModel;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -15,7 +16,7 @@ namespace Discordbot.RiotAPI
     public class APICalls
     {
 
-        const string API_KEY = "RGAPI-05644c18-12cc-46a0-9f39-004c3af17e15"; 
+        const string API_KEY = "RGAPI-6e2e5467-e80c-4e9c-925d-43cf00c3c7a7"; 
 
         public async Task<string> GetuserPUUIDs(string Username)
         {
@@ -77,6 +78,23 @@ namespace Discordbot.RiotAPI
             }
             return nemt; 
         }
+
+       public async Task<GameRoot> Getgames(string MatchID)
+        {
+            HttpClient client = new HttpClient();
+            string defualtgamestring = $"https://europe.api.riotgames.com/lol/match/v5/matches/{MatchID}?api_key=&APIKEY&";
+            defualtgamestring = defualtgamestring.Replace("&APIKEY&", API_KEY);
+            var request = WebRequest.CreateHttp(defualtgamestring);
+
+            var response = request.GetResponseAsync();
+            string nemt = "";
+            using (var reader = new StreamReader(response.Result.GetResponseStream()))
+            {
+                nemt = reader.ReadToEnd();
+            }
+            GameRoot res = JsonConvert.DeserializeObject<GameRoot>(nemt);
+            return res; 
+       }
 
 
     }
