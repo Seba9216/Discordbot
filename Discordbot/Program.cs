@@ -2,8 +2,10 @@
 using Discord.Commands;
 using Discord.WebSocket;
 using Microsoft.Extensions.DependencyInjection;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -38,12 +40,14 @@ namespace Discordbot
            
             _client.Log += Log;
 
-            var token = "MTEwMTQ1NzQ5NjYwMzg5NzkyOQ.GN0qX_.EP2NF2NpBWvqEUp57GTc4IAtw_NE7lJTzqJNws";
+
+            var token = JsonConvert.DeserializeObject<dynamic>(File.ReadAllText("../../../config.json"))["DiscordToken"];
+            
 
        
             await RegisterCommandAsync();
             
-        await _client.LoginAsync(TokenType.Bot, token);
+        await _client.LoginAsync(TokenType.Bot,((string)token).Replace("{","").Replace("}",""));
             await _client.StartAsync();
             await Task.Delay(-1);    
         }

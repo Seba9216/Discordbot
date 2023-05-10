@@ -1,4 +1,5 @@
-﻿using Discord.Commands;
+﻿using Discord;
+using Discord.Commands;
 using Discordbot.DomainModel;
 using Discordbot.DomainModel.GameDomainModel;
 using Discordbot.DomainModel.ViewModel;
@@ -12,6 +13,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Discordbot
 {
@@ -115,8 +117,29 @@ namespace Discordbot
                         
 
                     }
+                    Data.Add(view); 
                 }
+                
                 keyfinder++;
+            }
+            foreach(var views in Data)
+
+            {
+                var embed = new EmbedBuilder
+                {
+                    // Embed property can be set within object initializer
+                    Title = "Hello world!",
+                    Description = "I am a description set by initializer."
+                };
+
+                embed.AddField("Last 20 Games", "\u200b")
+                .WithAuthor(Context.Client.CurrentUser)
+                .WithColor(Color.Blue)
+                .WithTitle("SummonerName")
+                .WithDescription(views.sumonername)
+                .WithUrl("")
+                .WithCurrentTimestamp();
+                await ReplyAsync(embed: embed.Build());
             }
         }
     }

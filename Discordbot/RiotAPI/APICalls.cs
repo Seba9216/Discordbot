@@ -16,7 +16,7 @@ namespace Discordbot.RiotAPI
     public class APICalls
     {
 
-        const string API_KEY = "RGAPI-6e2e5467-e80c-4e9c-925d-43cf00c3c7a7"; 
+        public string API_KEY = ((string)JsonConvert.DeserializeObject<dynamic>(File.ReadAllText("../../../config.json"))["APIKEY"]).Replace("{","").Replace("}",""); 
 
         public async Task<string> GetuserPUUIDs(string Username)
         {
@@ -65,7 +65,7 @@ namespace Discordbot.RiotAPI
         {
             
             HttpClient client = new HttpClient();
-            string defualtgamestring = $"https://europe.api.riotgames.com/lol/match/v5/matches/by-puuid/{puuid}/ids?start=0&count=20&api_key=&APIKEY&";
+            string defualtgamestring = $"https://europe.api.riotgames.com/lol/match/v5/matches/by-puuid/{puuid}/ids?start=0&count=5&api_key=&APIKEY&";
             defualtgamestring = defualtgamestring.Replace("&APIKEY&", API_KEY);
             var request = WebRequest.CreateHttp(defualtgamestring);
 
