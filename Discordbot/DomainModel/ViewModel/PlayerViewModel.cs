@@ -8,13 +8,15 @@ namespace Discordbot.DomainModel.ViewModel
 {
     public class PlayerViewModel
     {
-        public double KDA { get; set; }
+        public decimal KDA { get; set; }
         public string sumonername { get; set; }
         public int SummonerID { get; set; }
-        public double Winrate { get; set; }
+        public decimal Winrate { get; set; }
         public int wins { get; set; }
         public int losses { get; set; }
-        public List<GameViewModel> Games { get; set; }
+        public List<GameViewModel> Games { get; set; } = new List<GameViewModel>(); 
+
+        public List<ChampViewmodel> champs { get; set; } = new List<ChampViewmodel>(); 
 
 
     }
